@@ -1,5 +1,17 @@
 # Orleg game over webRTC
 
+<div align = center>
+
+<br>
+
+[![Play Game]][Link]
+
+</div>
+
+<br>
+
+<!---------------------------------------------------------------------------->
+
 ## Orleg?
 
 Orlog is a dice game popular among the Norse and Anglo-Saxons in which the contestants attempt to reduce their opponent's "health", as represented by a set of 15 stones, to zero through various dice rolls and bonus effects.
@@ -21,3 +33,6 @@ Instead of using a signaling server to act as a broker, we exchange messages bet
 - [x] 3D dice roll
 - [ ] implement base game logic
 - [ ] make it look nice
+
+[Play Game]: https://img.shields.io/badge/Shield_Buttons-37a779?style=for-the-badge
+[Link]: https://luandev.github.io/orlog/
