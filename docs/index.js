@@ -11,6 +11,16 @@ const iceServers = {
 // Create a local peer connection
 localConnection = new RTCPeerConnection(iceServers);
 
+// Set up the offerer and answerer
+localConnection.createOffer()
+  .then(offer => localConnection.setLocalDescription(offer))
+  .then(() => remoteConnection.setRemoteDescription(localConnection.localDescription))
+  .then(() => remoteConnection.createAnswer())
+  .then(answer => remoteConnection.setLocalDescription(answer))
+  .then(() => localConnection.setRemoteDescription(remoteConnection.localDescription))
+  .catch(error => console.error('Error setting up the connection:', error));
+
+
 // Create a data channel for messaging
 const dataChannel = localConnection.createDataChannel('chat');
 
