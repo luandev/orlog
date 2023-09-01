@@ -34,5 +34,5 @@ Instead of using a signaling server to act as a broker, we exchange messages bet
 - [ ] implement base game logic
 - [ ] make it look nice
 
-[Play Game]: https://img.shields.io/badge/Shield_Buttons-37a779?style=for-the-badge
+[Play Game]: https://img.shields.io/badge/Play_Game-37a779?style=for-the-badge
 [Link]: https://luandev.github.io/orlog/
