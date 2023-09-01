@@ -2,13 +2,17 @@
   "name": "orlog",
   "version": "1.0.0",
   "description": "Orlog game",
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "esbuild ./src/index.js --bundle --outfile=./public/index.js --target=chrome58,firefox57,safari11,edge16",
+    "start": "npx http-server ./public"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@3d-dice/dice-box": "^1.0.10"
+    "@3d-dice/dice-box": "^1.0.10",
+    "esbundle": "^0.0.2"
   }
 }

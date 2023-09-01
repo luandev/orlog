@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebRTC Text Chat</title>
+</head>
+
+<body>
+    <h1>WebRTC Text Chat</h1>
+    <div id="chat">
+        <textarea id="messageBox" placeholder="Type your message..."></textarea>
+        <button id="sendButton">Send</button>
+        <div id="messages"></div>
+        <dialog id="offerDialog">
+            <form method="dialog">
+                <a id="link" disabled href="">Send this link to peer</a>
+                and paste the response here:
+                <textarea id="response"></textarea>
+                <button>ok</button>
+            </form>
+        </dialog>
+        <dialog id="answerDialog">
+            <form method="dialog">
+                send this code to host and wait for connection
+                <textarea id="answer"></textarea>
+                <button>ok</button>
+            </form>
+        </dialog>
+    </div>
+
+    <script src="./main.js"></script>
+
+</body>
+
+</html>
