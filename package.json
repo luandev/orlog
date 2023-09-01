@@ -1,0 +1,14 @@
+{
+  "name": "orlog",
+  "version": "1.0.0",
+  "description": "Orlog game",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@3d-dice/dice-box": "^1.0.10"
+  }
+}
