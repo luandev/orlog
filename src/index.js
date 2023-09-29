@@ -1,5 +1,6 @@
 // import  './gameLogic';
 import simpleRTC from "./simpleRTC";
+import './rollDiceBox';
 
 (async () => {
   const deliverMessage = await simpleRTC((message) => {

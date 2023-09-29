@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish": "esbuild ./src/index.js --bundle --outfile=./public/index.js --target=chrome58,firefox57,safari11,edge16",
+    "dev": "esbuild ./src/index.js --bundle --outfile=./public/index.js --target=chrome58,firefox57,safari11,edge16 --watch & npm run start",
     "start": "npx http-server ./public"
   },
   "author": "",
