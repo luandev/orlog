@@ -1,4 +1,4 @@
-# Orleg game over webRTC
+# orlog game over webRTC
 
 <div align = center>
 
@@ -12,7 +12,7 @@
 
 <!---------------------------------------------------------------------------->
 
-## Orleg?
+## orlog?
 
 Orlog is a dice game popular among the Norse and Anglo-Saxons in which the contestants attempt to reduce their opponent's "health", as represented by a set of 15 stones, to zero through various dice rolls and bonus effects.
 [see here](https://www.youtube.com/watch?v=vATOTvBTgeY)
