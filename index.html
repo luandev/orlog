@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orlog - Norse Dice Game</title>
+    <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="connection-area" id="connection-area">
+            <h1>ORLOG</h1>
+            <p>A Norse dice game played over WebRTC</p>
+            
+            <div class="connection-controls">
+                <div class="create-game">
+                    <h2>Host a Game</h2>
+                    <button id="create-game-btn">Create Game</button>
+                    <div id="connection-code" class="hidden">
+                        <p>Share this code with your opponent:</p>
+                        <textarea id="local-description" readonly></textarea>
+                        <button id="copy-code-btn">Copy Code</button>
+                    </div>
+                </div>
+                
+                <div class="join-game">
+                    <h2>Join a Game</h2>
+                    <textarea id="remote-description" placeholder="Paste connection code here..."></textarea>
+                    <button id="join-game-btn">Join Game</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-area hidden" id="game-area">
+            <div class="game-board">
+                <div class="player-area opponent-area">
+                    <div class="health-stones">
+                        <h3>Opponent's Health: <span id="opponent-health">15</span></h3>
+                        <div class="stones-container" id="opponent-stones"></div>
+                    </div>
+                    <div class="dice-area" id="opponent-dice"></div>
+                </div>
+                
+                <div class="dice-container" id="dice-container"></div>
+                
+                <div class="player-area player-area-self">
+                    <div class="dice-area" id="player-dice"></div>
+                    <div class="health-stones">
+                        <h3>Your Health: <span id="player-health">15</span></h3>
+                        <div class="stones-container" id="player-stones"></div>
+                    </div>
+                </div>
+                
+                <div class="game-controls">
+                    <button id="roll-dice-btn" class="hidden">Roll Dice</button>
+                    <button id="keep-dice-btn" class="hidden">Keep Selected Dice</button>
+                    <button id="resolve-turn-btn" class="hidden">Resolve Turn</button>
+                </div>
+                
+                <div class="game-status" id="game-status">Waiting for connection...</div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
