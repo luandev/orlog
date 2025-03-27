@@ -1,9 +1,7 @@
 import { DiceSymbol, DiceSymbolType, PlayerType } from '../types/game';
 import { MAX_SELECTED_DICE, RESOLUTION_DELAY } from './constants';
 import { gameState, toggleCurrentPlayer } from './game-state';
-import { init3DDice, rollDice } from '../rendering/dice';
 import { renderDiceResults, renderHealthStones, updateStatus } from '../ui/ui-renderer';
-import { sendGameData } from '../networking/webrtc';
 
 // Initialize the game
 export function initGame(isHost: boolean): void {

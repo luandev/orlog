@@ -3,7 +3,7 @@ import { gameState, resetGameState } from './game-state';
 import { DiceSymbol } from '../types/game';
 import { DICE_SYMBOLS, TOTAL_DICE, DICE_SIZE, AI_SELECTION_DELAY } from './constants';
 import { renderDiceResults, renderHealthStones, updateStatus } from '../ui/ui-renderer';
-import { startNewRound, rollDice, selectDie, keepSelectedDice, resolveTurn } from './game-logic';
+import { startNewRound, keepSelectedDice, resolveTurn } from './game-logic';
 
 export class Game {
   private app: PIXI.Application;
@@ -173,15 +173,13 @@ export class Game {
       renderDiceResults('opponent', results);
       updateStatus('Opponent has selected their dice.');
       
-      // If player has already selected, move to resolution
-      if (gameState.playerSelectedDice.length === 3) {
-        gameState.gamePhase = 'resolution';
-        const resolveTurnBtn = document.getElementById('resolve-turn-btn');
-        if (resolveTurnBtn) {
-          resolveTurnBtn.classList.remove('hidden');
-        }
-        updateStatus('Both players have selected dice. Ready to resolve the turn.');
+      // Move to resolution phase
+      gameState.gamePhase = 'resolution';
+      const resolveTurnBtn = document.getElementById('resolve-turn-btn');
+      if (resolveTurnBtn) {
+        resolveTurnBtn.classList.remove('hidden');
       }
+      updateStatus('Both players have selected dice. Ready to resolve the turn.');
     }, AI_SELECTION_DELAY);
   }
 
