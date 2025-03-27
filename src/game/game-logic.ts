@@ -33,10 +33,13 @@ export function startNewRound(): void {
   updateStatus(`Round ${gameState.roundNumber} - ${gameState.currentPlayer === 'player' ? 'Your' : 'Opponent\'s'} turn`);
   
   if (gameState.currentPlayer === 'player') {
-    document.getElementById('roll-dice-btn')?.classList.remove('hidden');
+    const rollDiceBtn = document.getElementById('roll-dice-btn');
+    if (rollDiceBtn) {
+      rollDiceBtn.classList.remove('hidden');
+    }
     updateStatus('Your turn. Roll the dice!');
   } else {
-    updateStatus('Opponent\'s turn. Waiting for opponent to roll dice...');
+    updateStatus('Opponent\'s turn.');
   }
 }
 
@@ -99,7 +102,10 @@ export function keepSelectedDice(): void {
     return;
   }
   
-  document.getElementById('keep-dice-btn')?.classList.add('hidden');
+  const keepDiceBtn = document.getElementById('keep-dice-btn');
+  if (keepDiceBtn) {
+    keepDiceBtn.classList.add('hidden');
+  }
   
   // If not enough dice selected, auto-select up to MAX_SELECTED_DICE
   while (gameState.playerSelectedDice.length < MAX_SELECTED_DICE) {
@@ -112,20 +118,10 @@ export function keepSelectedDice(): void {
     }
   }
   
-  // Send selection to opponent
-  sendGameData({
-    type: 'dice_selection',
-    selection: gameState.playerSelectedDice
-  });
-  
   updateStatus('Waiting for opponent to finish their selection...');
   
-  // If opponent has already selected, move to resolution
-  if (gameState.opponentSelectedDice.length === MAX_SELECTED_DICE) {
-    gameState.gamePhase = 'resolution';
-    document.getElementById('resolve-turn-btn')?.classList.remove('hidden');
-    updateStatus('Both players have selected dice. Ready to resolve the turn.');
-  }
+  // Switch to opponent's turn (handled by Game class)
+  toggleCurrentPlayer();
 }
 
 // Resolve the current turn
@@ -134,7 +130,10 @@ export function resolveTurn(): void {
     return;
   }
   
-  document.getElementById('resolve-turn-btn')?.classList.add('hidden');
+  const resolveTurnBtn = document.getElementById('resolve-turn-btn');
+  if (resolveTurnBtn) {
+    resolveTurnBtn.classList.add('hidden');
+  }
   
   // Count attacks, defenses, steals, and god tokens
   const playerAttacks = countDiceOfType(gameState.playerSelectedDice, 'attack');
@@ -186,6 +185,7 @@ export function resolveTurn(): void {
   
   // Switch current player and start a new round
   toggleCurrentPlayer();
+  gameState.gamePhase = 'rolling';
   
   // Wait a bit before starting new round
   setTimeout(startNewRound, RESOLUTION_DELAY);
@@ -206,9 +206,15 @@ export function endGame(): void {
     updateStatus('Game over! You won!');
   }
   
-  // Send game over notification
-  sendGameData({
-    type: 'game_over',
-    winner: gameState.playerHealth > 0 ? 'player' : 'opponent'
-  });
+  // Add a play again button
+  const gameStatus = document.getElementById('game-status');
+  if (gameStatus) {
+    const playAgainBtn = document.createElement('button');
+    playAgainBtn.textContent = 'Play Again';
+    playAgainBtn.style.marginTop = '10px';
+    playAgainBtn.addEventListener('click', () => {
+      window.location.reload();
+    });
+    gameStatus.appendChild(playAgainBtn);
+  }
 }

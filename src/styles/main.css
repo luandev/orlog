@@ -17,8 +17,7 @@ body {
     padding: 20px;
 }
 
-/* Connection Area */
-.connection-area {
+.game-header {
     text-align: center;
     padding: 30px;
     background-color: #34495e;
@@ -27,39 +26,11 @@ body {
     margin-top: 40px;
 }
 
-.connection-area h1 {
+.game-header h1 {
     font-size: 3rem;
     margin-bottom: 10px;
     letter-spacing: 5px;
     color: #e74c3c;
-}
-
-.connection-controls {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.create-game, .join-game {
-    width: 45%;
-    min-width: 300px;
-    padding: 20px;
-    background-color: #2c3e50;
-    border-radius: 8px;
-    margin: 10px;
-}
-
-textarea {
-    width: 100%;
-    height: 100px;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #1a2530;
-    color: #ecf0f1;
-    border: 1px solid #7f8c8d;
-    border-radius: 4px;
-    resize: none;
 }
 
 button {
@@ -110,13 +81,14 @@ button:disabled {
     margin: 20px 0;
 }
 
-.dice-container {
+#game-canvas-container {
     width: 100%;
     height: 300px;
     background-color: #1a2530;
     border-radius: 8px;
     margin: 20px 0;
     position: relative;
+    overflow: hidden;
 }
 
 .health-stones {
@@ -197,12 +169,11 @@ button:disabled {
 }
 
 @media (max-width: 768px) {
-    .connection-controls {
-        flex-direction: column;
-        align-items: center;
+    .game-container {
+        padding: 10px;
     }
     
-    .create-game, .join-game {
-        width: 100%;
+    .game-header h1 {
+        font-size: 2rem;
     }
 }

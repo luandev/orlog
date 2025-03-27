@@ -8,30 +8,12 @@
 </head>
 <body>
     <div class="game-container">
-        <div class="connection-area" id="connection-area">
+        <div class="game-header">
             <h1>ORLOG</h1>
-            <p>A Norse dice game played over WebRTC</p>
-            
-            <div class="connection-controls">
-                <div class="create-game">
-                    <h2>Host a Game</h2>
-                    <button id="create-game-btn">Create Game</button>
-                    <div id="connection-code" class="hidden">
-                        <p>Share this code with your opponent:</p>
-                        <textarea id="local-description" readonly></textarea>
-                        <button id="copy-code-btn">Copy Code</button>
-                    </div>
-                </div>
-                
-                <div class="join-game">
-                    <h2>Join a Game</h2>
-                    <textarea id="remote-description" placeholder="Paste connection code here..."></textarea>
-                    <button id="join-game-btn">Join Game</button>
-                </div>
-            </div>
+            <p>A Norse dice game of strategy and luck</p>
         </div>
         
-        <div class="game-area hidden" id="game-area">
+        <div class="game-area" id="game-area">
             <div class="game-board">
                 <div class="player-area opponent-area">
                     <div class="health-stones">
@@ -41,7 +23,7 @@
                     <div class="dice-area" id="opponent-dice"></div>
                 </div>
                 
-                <div class="dice-container" id="dice-container"></div>
+                <div id="game-canvas-container"></div>
                 
                 <div class="player-area player-area-self">
                     <div class="dice-area" id="player-dice"></div>
@@ -52,12 +34,12 @@
                 </div>
                 
                 <div class="game-controls">
-                    <button id="roll-dice-btn" class="hidden">Roll Dice</button>
+                    <button id="roll-dice-btn">Roll Dice</button>
                     <button id="keep-dice-btn" class="hidden">Keep Selected Dice</button>
                     <button id="resolve-turn-btn" class="hidden">Resolve Turn</button>
                 </div>
                 
-                <div class="game-status" id="game-status">Waiting for connection...</div>
+                <div class="game-status" id="game-status">Game starting...</div>
             </div>
         </div>
     </div>

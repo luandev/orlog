@@ -5,7 +5,7 @@ import { INITIAL_HEALTH } from './constants';
 export const gameState: GameState = {
   playerHealth: INITIAL_HEALTH,
   opponentHealth: INITIAL_HEALTH,
-  currentPlayer: null,
+  currentPlayer: 'player', // Player always starts first in single-player mode
   gamePhase: 'waiting',
   playerDice: [],
   opponentDice: [],
@@ -20,7 +20,7 @@ export const gameState: GameState = {
 export function resetGameState(): void {
   gameState.playerHealth = INITIAL_HEALTH;
   gameState.opponentHealth = INITIAL_HEALTH;
-  gameState.currentPlayer = null;
+  gameState.currentPlayer = 'player';
   gameState.gamePhase = 'waiting';
   gameState.playerDice = [];
   gameState.opponentDice = [];
@@ -32,7 +32,7 @@ export function resetGameState(): void {
 }
 
 // Get the current player
-export function getCurrentPlayer(): PlayerType | null {
+export function getCurrentPlayer(): PlayerType {
   return gameState.currentPlayer;
 }
 
@@ -43,9 +43,5 @@ export function setCurrentPlayer(player: PlayerType): void {
 
 // Toggle the current player
 export function toggleCurrentPlayer(): void {
-  if (gameState.currentPlayer === 'player') {
-    gameState.currentPlayer = 'opponent';
-  } else {
-    gameState.currentPlayer = 'player';
-  }
+  gameState.currentPlayer = gameState.currentPlayer === 'player' ? 'opponent' : 'player';
 }

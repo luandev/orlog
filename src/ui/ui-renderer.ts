@@ -65,7 +65,7 @@ export function renderDiceResults(player: PlayerType, dice: DiceSymbol[]): void 
     dieElement.appendChild(typeElement);
     
     // Add click event for selection
-    if (player === 'player' && gameState.gamePhase === 'selecting') {
+    if (player === 'player' && gameState.gamePhase === 'selecting' && gameState.currentPlayer === 'player') {
       dieElement.addEventListener('click', () => selectDie('player', index));
     }
     

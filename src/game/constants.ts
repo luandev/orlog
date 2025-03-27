@@ -15,3 +15,5 @@ export const INITIAL_HEALTH = 15;
 export const MAX_SELECTED_DICE = 3;
 export const TOTAL_DICE = 6;
 export const RESOLUTION_DELAY = 3000; // ms
+export const DICE_SIZE = 60;
+export const AI_SELECTION_DELAY = 1500; // ms
